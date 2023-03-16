@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if user_books %}
+    <div class="row">
+      {% for book in user_books %}
+         <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="{{ book.cover_image.url }}" alt="{{ book.title }} cover" style="max-height: 60vh; min-height: 400px">
+            <div class="card-body">
+              <h5 class="card-title">{{ book.title }}</h5>
+              <p class="card-text">{{ book.author }}</p>
+              {% comment %} <a href="{% url 'book_download' book.id %}" class="btn btn-primary">Download</a> {% endcomment %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No books downloaded yet.</p>
+  {% endif %}
+{% endblock %}
+
+

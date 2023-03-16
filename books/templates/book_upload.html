@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+  <h1>Upload a Book</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_title">Title:</label>
+      <input type="text" id="id_title" name="title" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="id_author">Author:</label>
+      <input type="text" id="id_author" name="author" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="id_description">Description:</label>
+      <textarea id="id_description" name="description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="id_cover_image">Cover Image:</label>
+      <input type="file" id="id_cover_image" name="cover_image" class="form-control-file">
+    </div>
+    <div class="form-group">
+      <label for="id_book_file">Book File:</label>
+      <input type="file" id="id_book_file" name="book_file" class="form-control-file">
+    </div>
+    <button type="submit" class="btn btn-primary btn-dark">Upload</button>
+  </form>
+{% endblock %}
